@@ -17,25 +17,32 @@ class cariSisiTest {
 	public void setUp() {
 		sisi = new cariSisi();
 	}
+	
+	//mencari miring dari tinggi dan alas
 	@Test
-	void testCariMiring() {
-		fail("Not yet implemented");
+	@DisplayName("Panjang sisi miring")
+	public void testCariMiring() {
+		int alas = 3;
+		int tinggi = 4;
+		assertEquals(5, sisi.cariMiring(tinggi, alas));
 	}
 	
 	//Mencari sisi siku (tinggi)
 	@Test
 	@DisplayName("Panjang sisi tinggi")
-	@ParameterizedTest(name= "{index} => miring={0}, alas={1}, sum={2}")
-	@CsvSource({"1,2,3","4,5,9"})
-	public void testCariSisiTinggi(int miring, int alas, int sum) {
-		sisi.cariSisiSiku(sum, sisi.cariSisiSiku(miring, alas));
+	public void testCariSisiTinggi() {
+		int miring = 5;
+		int x = 3;
+		assertEquals(4, sisi.cariSisiSiku(miring, x));
 	}
-//		public void testPenjumlahanDenganBanyakData(int a,int b, int sum) {
-//			calc.tambah(sum, calc.tambah(a,b));
-//		}
-//		
-		//Mencari sisi siku (Alas)
-		//mencari miring
-		//mencari miring jika panjang alas dan tinggi sama
+	
+	//Mencari sisi siku (Alas)
+	@Test
+	@DisplayName("Panjang sisi alas")
+	public void testCariSisiAlas() {
+		int miring = 5;
+		int x = 4;
+		assertEquals(3, sisi.cariSisiSiku(miring, x));
+	}
 
 }
